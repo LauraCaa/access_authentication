@@ -4,7 +4,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 export default function LoginButton() {
     return(
         <>
-            <a href="/login" className=" position-absolute right-0 btn btn-dark">Log in</a>        
+            <div className="">
+                <img className="rounded-4 img-fluidd-block w-100" src='/images/main.png'/>
+            </div>
+            <div className="p-relative" >
+                <a href="/login" className="p-absolute rounded-pill btn btn-dark">Log in</a>        
+            </div>
         </>
     )
 }

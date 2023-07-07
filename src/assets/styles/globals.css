@@ -4,11 +4,9 @@
   font-family: 'DM Sans', sans-serif;
  }
 
-.buttons {
-    border-radius: 8px; 
-    background-color: black;
-    text-decoration: aliceblue;
-    width: 50px;
-    height: 40px;
-  }
+.p-relative{
+   position: relative;
+   bottom: 600px;
+   left: 450px;
+}
   
