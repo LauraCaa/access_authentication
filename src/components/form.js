@@ -48,35 +48,34 @@ export default function Form() {
                         <Logo></Logo>
                     </div>
                     <div className="row d-flex justify-content-center align-items-center">
-                    <form className="row p-5" onSubmit={handleSubmit}>
-                        { url === '/' ? (
-                            <>
+                        <form className="row p-5" onSubmit={handleSubmit}>
+                            { url === '/' ? (
+                                <>
+                                    <div className="pb-4">
+                                        <h2 className="font" >Create an account</h2>
+                                        <p>Let's get started with your 30 days free trial</p>
+                                    </div>
+                                    <fieldset className=" form-group mb-4 row border-bottom">
+                                        <input className="border-0 p-1" id="name" type="text" placeholder="Name" onChange={(event) => setUser({...user, name: event.target.value})}/>
+                                    </fieldset>
+                                </>
+                            ):(
                                 <div className="pb-4">
-                                    <h2 className="font" >Create an account</h2>
-                                    <p>Let's get started with your 30 days free trial</p>
+                                    <h2 className="font" >Log in</h2>
+                                    <p>Data to access your account</p>
                                 </div>
-                                <fieldset className=" form-group mb-4 row border-bottom">
-                                    <input className="border-0 p-1" id="name" type="text" placeholder="Name" onChange={(event) => setUser({...user, name: event.target.value})}/>
-                                </fieldset>
-                            </>
-                        ):(
-                            <div className="pb-4">
-                                <h2 className="font" >Log in</h2>
-                                <p>Data to access your account</p>
+                            )}          
+                            <fieldset className="form-group mb-4 row border-bottom">
+                                <input className="border-0 p-1" id="email" type="text" placeholder="Email" onChange={(event) => setUser({...user, email: event.target.value})}/>
+                            </fieldset>
+                            <fieldset className="form-group mb-4 row border-bottom">
+                                <input className="border-0 p-1" id="password" type="password" placeholder="Password" onChange={(event) => setUser({...user, password: event.target.value})}/>
+                            </fieldset>
+                            <div className="row p-2">
+                                <input className="btn btn-lg btn-dark  rounded-pill" id="button" type="submit" value={url === '/' ? 'Create account' : 'Sign in'}/>
                             </div>
-                        )}          
-                        <fieldset className="form-group mb-4 row border-bottom">
-                            <input className="border-0 p-1" id="email" type="text" placeholder="Email" onChange={(event) => setUser({...user, email: event.target.value})}/>
-                        </fieldset>
-                        <fieldset className="form-group mb-4 row border-bottom">
-                            <input className="border-0 p-1" id="password" type="password" placeholder="Password" onChange={(event) => setUser({...user, password: event.target.value})}/>
-                        </fieldset>
-                        <div className="row p-2">
-                            <input className="btn btn-lg btn-dark  rounded-pill" id="button" type="submit" value={url === '/' ? 'Create account' : 'Sign in'}/>
-                        </div>
-                    </form>
-                </div>
-
+                        </form>
+                    </div>
                 </div>     
                 <div className="col-md-7">
                     <AuthButton></AuthButton>
