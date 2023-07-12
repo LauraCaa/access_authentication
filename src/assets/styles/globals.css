@@ -9,4 +9,9 @@
    top: 10px;
    right: 15px;
 }
+.table-collapse {
+   border-collapse: separate;
+   border-color: black;
+   border-spacing: 0 10px;
+ }
   

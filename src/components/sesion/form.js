@@ -1,10 +1,11 @@
 import'@/assets/styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import {useState, useEffect} from 'react';
-import AuthButton from '@/components/authbutton';
 import {useRouter} from 'next/router';
-import Logo from './logo';
+import AuthButton from '@/components/sesion/authbutton'
+import Logo from '@/components/logo'
 
 
 export default function Form() {
@@ -22,7 +23,7 @@ export default function Form() {
         .then((response) => {
             if (window.location.pathname === '/login'){
                 console.log(response.data.user)
-                Cookie.set(token, response.data.user.token)
+                Cookies.set('token', response.data.user.token)
                 return null;
                 // return window.location.href = '/congrats' 
             }
@@ -30,7 +31,7 @@ export default function Form() {
         })
         .catch((error) => {
             console.log(error);
-        })
+        }) 
     }
 
     useEffect(() => {

@@ -1,11 +1,11 @@
 import'@/assets/styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import Form from '@/components/form'
+import Form from '@/components/sesion/form'
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Form></Form>
-    </main>
+    </>
   )
 }
