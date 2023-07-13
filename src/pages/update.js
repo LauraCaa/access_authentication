@@ -1,10 +1,11 @@
-import UserUpDate from '@/components/about-user/user-update'
+import Logo from "@/components/logo"
+import UserInfo from "@/components/about-user/user-info"
 
 export default function UpDate(){
     return(
-        <>
-            <h3>this is up date </h3>
-            <UserUpDate></UserUpDate>
-        </>
+        <div className="container">
+            <Logo></Logo>
+            <UserInfo></UserInfo>
+    </div>
     )
 }

@@ -1,11 +1,12 @@
 import UserInfo from '@/components/about-user/user-info'
+import Logo from '@/components/logo'
 import'@/assets/styles/globals.css'
 
 
 export default function User(){
     return(
         <div className="container">
-            <h3>this is user </h3>
+            <Logo></Logo>
             <UserInfo></UserInfo>
         </div>
     )
