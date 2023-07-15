@@ -1,7 +1,7 @@
 import Logo from "@/components/logo"
 import UserInfo from "@/components/about-user/user-info"
 
-export default function UpDate(){
+export default function Edit(){
     return(
         <div className="container">
             <Logo></Logo>

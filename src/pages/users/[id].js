@@ -3,7 +3,7 @@ import Logo from '@/components/logo'
 import'@/assets/styles/globals.css'
 
 
-export default function User(){
+export default function Show(){
     return(
         <div className="container">
             <Logo></Logo>
