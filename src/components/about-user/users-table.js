@@ -27,10 +27,20 @@ export default function UsersTable() {
         <div className = "container">
             <h1 className = "pt-5 font">Users</h1>
             <table className = "table table-info table-hover">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Creation Date</th>
+                        <th>Last upDate</th>
+                        <th></th>
+                    </tr>
+                </thead>
                 <tbody>
                     {users.map((user) => (
                         <tr key={user.id}>
-                            <td className = "text-muted">{user.name}{user.email}/</td>
+                            <td className = "text-muted">{user.name}/</td>
+                            <td className = "text-muted">{user.email}/</td>
                             <td className = "text-muted">{user.inserted_at} </td>
                             <td className = "text-muted">{user.updated_at}/</td>    
                             <td className = "text-muted">

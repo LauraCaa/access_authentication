@@ -29,9 +29,6 @@ export default function userButton() {
         }
     }, [router.isReady])
 
-    function isOwner(userId) {
-        return currentUser && currentUser.id === userId;
-      }
     function handleDelete(id) {
         if (window.confirm("Are you sure you want to proceed?")) {
             axios.delete(`https://authorin.andreslopezferro.com/users/${id}`)
@@ -49,15 +46,16 @@ export default function userButton() {
          {url  == '/users/[id]' ? (
                 <div className="row"> 
                     <div className="col-6">
-                        <Link type="button" className="p-2 btn btn-full btn-danger mt-4  rounded-pill" onClick={() => handleDelete(user.id)} href= {'/users'}>Delete</Link>
+                        <a type="button" value="delete" className="btn btn-lg btn-danger mt-4 me-4 rounded-pill " onClick={() => handleDelete(user.id)} href= {'/users'}>Delete</a>
                     </div>
                     <div className="col-6">
-                        <Link className="p-2 btn btn-full btn-dark mt-4  rounded-pill" href= {'/users/edit/' + user.id}>Edit</Link>
+                        <a href= {'/users/edit/' + user.id} className="btn btn-lg btn-dark mt-4 me-4 rounded-pill ">Update</a>
+
                     </div>
                 </div>        
             ):(
                 <div className="container">
-                    <Link type="submit" value="Save"  className="p-2 btn btn-full btn-success mt-4  rounded-pill" href= {'/users/' + user.id}></Link>
+                    <a type="submit" value="Save"  className="p-2 btn btn-full btn-success mt-4  rounded-pill" href= {'/users/' + user.id}>Save</a>
                 </div>
             )}
         </div>

@@ -24,7 +24,7 @@ export default function Form() {
             if (window.location.pathname === '/login'){
                 console.log(response.data.user)
                 Cookies.set('token', response.data.user.token)
-                return window.location.href = '/congrats' 
+                return window.location.href = '/users' 
             }
             window.location.href = '/login';
         })
