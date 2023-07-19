@@ -11,26 +11,17 @@ const AUTH_TOKEN = 'Bearer ' + Cookies.get('token')
 axios.defaults.headers.common['Authorization']= AUTH_TOKEN
 
 export default function UserInfo() {
-    const [user, setUser] = useState([{
-        name: '',
-        email: '',
-        country: '',
-        city: '',
-        phone: '',
-        age: '',
-      }]);
+    const [user, setUser] = useState({});
     const router  = useRouter();
     const [inputDisabled, setInputDisabled] = useState(true);
-    console.log(user.data)
       
     useEffect(() => {
         const disableInput = router.pathname === '/users/[id]';
         setInputDisabled(disableInput);
-        }, [router.pathname]);
+    }, [router.pathname]);
     
     useEffect(() => {
         if(router.isReady){
-            console.log(user.data)
             const { id } = router.query;
             axios.get(`https://authorin.andreslopezferro.com/users/${id}`)
             .then ((response) => {
@@ -44,48 +35,45 @@ export default function UserInfo() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        const { id } = router.query;
-        axios.put(`https://authorin.andreslopezferro.com/users/`+id, user)
+        axios.put(`https://authorin.andreslopezferro.com/users/${user.id}`, {user: user})
         .then (() => {
-            router.push('/users/edit');
+            router.push(`/users/${user.id}`);
         })
         .catch((error) => {
             console.error(error);
         });
     }
-
-
     return (
         <div className="container">
             <div className="row justify-content-center">
                 <form onSubmit={handleSubmit} className="col col-md-4">
-                        <BackButton></BackButton>
+                    <BackButton id={user.id ? user.id : null}></BackButton>
                     <fieldset className="form-group py-3 ">
-                        <lable htmlFor="userName" className="form-label second-font">Your Name</lable>
+                        <label htmlFor="userName" className="form-label second-font">Your Name</label>
                         <input className="rounded form-control form-control-lg border border-secondary-subtle" id="userName" type="text" defaultValue={user.name} onChange={(event)=> setUser({...user, name: event.target.value})} disabled={inputDisabled}/>
                     </fieldset>
                     <fieldset className="form-group py-3">
-                        <lable htmlFor="userEmail" className="form-label second-font">Email</lable>
+                        <label htmlFor="userEmail" className="form-label second-font">Email</label>
                         <input className="rounded form-control form-control-lg border border-secondary-subtle " id="userEmail" type="text" defaultValue={user.email} onChange={(event)=> setUser({...user, email: event.target.value})} disabled={inputDisabled} />
                     </fieldset>
                     <fieldset className="form-group py-3">
-                        <lable htmlFor="userCountry"className="form-label second-font">Country</lable>
+                        <label htmlFor="userCountry"className="form-label second-font">Country</label>
                         <input className="rounded form-control form-control-lg border border-secondary-subtle" id="userCountry" type="text" defaultValue={user.country} onChange={(event)=> setUser({...user, country: event.target.value})} disabled={inputDisabled}/>
                     </fieldset>
                     <fieldset className="form-group py-3">
-                        <lable htmlFor="userCity"className="form-label second-font">City</lable>
+                        <label htmlFor="userCity"className="form-label second-font">City</label>
                         <input className="rounded form-control form-control-lg border border-secondary-subtle" id="userCity" type="text" defaultValue={user.city} onChange={(event)=> setUser({...user, city: event.target.value})} disabled={inputDisabled}/>
                     </fieldset>
                     <fieldset className="form-group py-3">
-                        <lable htmlFor="userPhone" className="form-label second-font">Phone</lable>
+                        <label htmlFor="userPhone" className="form-label second-font">Phone</label>
                         <input className="rounded form-control form-control-lg border border-secondary-subtle" id="userPhone" type="text" defaultValue={user.phone} onChange={(event)=> setUser({...user, phone: event.target.value})} disabled={inputDisabled}/>
                     </fieldset>
                     <fieldset className="form-group py-3">
-                        <lable htmlFor="userAge" className="form-label second-font">Age</lable>
+                        <label htmlFor="userAge" className="form-label second-font">Age</label>
                         <input className="rounded form-control form-control-lg border border-secondary-subtle" id="userAge" type="text" defaultValue={user.age} onChange={(event)=> setUser({...user, age: event.target.value})} disabled={inputDisabled}/>
                     </fieldset>
                     <div className="container">
-                        <UserButton></UserButton>
+                        <UserButton id={user.id ? user.id : null}></UserButton>
                     </div>
                 </form>
             </div>
