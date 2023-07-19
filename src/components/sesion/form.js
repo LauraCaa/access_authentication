@@ -22,9 +22,8 @@ export default function Form() {
         axios.post(endPoint, {user: user})
         .then((response) => {
             if (window.location.pathname === '/login'){
-                console.log(response.data.user)
-                Cookies.set('token', response.data.user.token)
-                Cookies.set('user_id', response.data.user.id)
+                Cookies.set('token', response.data.user.token,{ expires: 1 })
+                Cookies.set('user_id', response.data.user.id,{ expires: 1})
                 return window.location.href = '/users' 
             }
             window.location.href = '/login';
