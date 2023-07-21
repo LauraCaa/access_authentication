@@ -1,6 +1,5 @@
 import {useRouter} from 'next/router';
 import {useEffect, useState} from 'react';
-import'@/assets/styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default function AuthButton() {
