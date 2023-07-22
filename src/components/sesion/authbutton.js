@@ -1,5 +1,6 @@
 import {useRouter} from 'next/router';
 import {useEffect, useState} from 'react';
+import Link from "next/link";
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default function AuthButton() {
@@ -7,7 +8,6 @@ export default function AuthButton() {
     const router  = useRouter();
     useEffect(() => {
         if(router.isReady) {
-            console.log(router)
             setUrl(router.pathname)
         } 
     }, [router.isReady])
@@ -15,9 +15,9 @@ export default function AuthButton() {
     return(
         <div className="position-relative">
          { url  == '/' ? (
-                <a href= "/login" className="btn btn-lg btn-dark position-absolute top-0 end-0  mt-4 me-4 rounded-pill ">Log in</a>
+                <Link href= "/login" className="btn btn-lg btn-dark position-absolute top-0 end-0  mt-4 me-4 rounded-pill ">Log in</Link>
             ):(
-                <a href= "/" className="btn btn-lg btn-dark position-absolute top-0 end-0  mt-4 me-4 rounded-pill">Sign Up</a>
+                <Link href= "/" className="btn btn-lg btn-dark position-absolute top-0 end-0  mt-4 me-4 rounded-pill">Sign Up</Link>
             )}
             <img className="rounded-4 img-fluid-block w-100" src='/images/main.png'/>
         </div>
