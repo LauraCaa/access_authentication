@@ -1,8 +1,5 @@
-import AuthButton from "../../src/components/sesion/authbutton";
+import AuthButton from "@/components/session/authbutton";
 import { render, screen, fireEvent} from '@testing-library/react';
-import { createMemoryHistory } from 'history';
-// import { Router } from 'react-router-dom';
-import { useRouter } from 'next/router'
 import '@testing-library/jest-dom';
 import mockRouter from 'next-router-mock';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';

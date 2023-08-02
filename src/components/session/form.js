@@ -4,7 +4,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import {useState, useEffect} from 'react';
 import {useRouter} from 'next/router';
-import AuthButton from '@/components/sesion/authbutton'
+import AuthButton from '@/components/session/authbutton'
 import Logo from '@/components/logo'
 
 

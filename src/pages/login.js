@@ -1,5 +1,4 @@
-import styles from '../assets/styles/page.module.css'
-import Form from '@/components/sesion/form'
+import Form from '@/components/session/form'
 
 export default function Login() {
   return (
