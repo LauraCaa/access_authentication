@@ -1,4 +1,4 @@
-import AuthButton from "@/components/session/authbutton";
+import AuthButton from "../../src/components/session/authbutton";
 import { render, screen, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import mockRouter from 'next-router-mock';

@@ -4,14 +4,14 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import {useState, useEffect} from 'react';
 import {useRouter} from 'next/router';
-import AuthButton from '@/components/session/authbutton'
-import Logo from '@/components/logo'
+import AuthButton from '../session/authbutton';
+import Logo from '../logo';
 
 
 export default function Form() {
     const [user,setUser] = useState({});
     const [url, setUrl] = useState();
-    const router  = useRouter();
+    const router = useRouter();
 
     function handleSubmit(event){
         event.preventDefault();
@@ -24,9 +24,9 @@ export default function Form() {
             if (window.location.pathname === '/login'){
                 Cookies.set('token', response.data.user.token,{ expires: 1 })
                 Cookies.set('user_id', response.data.user.id,{ expires: 1})
-                return window.location.href = '/users' 
+                return router.push('users') 
             }
-            window.location.href = '/login';
+            router.push('login');
         })
         .catch((error) => {
             console.log(error);
